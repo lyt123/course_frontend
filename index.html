@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />-->
+    <!--<meta name="format-detection" content="telephone=no" />-->
+    <title>Title</title>
+    <script src="js/jquery2.js"></script>
+    <script>
+        $(document).ready(function () {
+            //搜索框动画效果
+            $('#search_course').focus(function () {
+                $('#search_course').css({
+                    'text-align': 'left',
+                    'text-indent': '120px',
+                    'background-position': '2% -20%',
+                    'width': '83%'
+                });
+                $('#search_course_cancel_button').css('visibility', 'visible');
+            });
+
+            $('#search_course_cancel_button').click(function () {
+                $('#search_course').css({
+                    'width': '95%',
+                    'background-position': '33% -20%',
+                    'text-align': 'center',
+                    'text-indent': 0
+                });
+                $('#search_course_cancel_button').css('visibility', 'hidden');
+
+            });
+
+            //轮播图效果
+            var slideshow_ul = document.getElementById('slide_show_ul');
+            var slideshow_li = slideshow_ul.getElementsByTagName('li');
+
+            var i = 1;
+
+            function slideShow() {
+                if (i == slideshow_li.length) {
+                    i = 0;
+                }
+                for (var j = 0; j < slideshow_li.length; j++) {
+                    slideshow_li[j].style.display = 'none';
+                }
+                slideshow_li[i].style.display = 'block';
+                i++;
+            }
+
+            timer = setInterval(slideShow, 3000);
+
+
+        });
+    </script>
+    <style>
+        .icon {
+            width: 2em;
+            height: 2em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        body {
+            background: lightgray;
+            padding: 0;
+            font-size: 25px;
+        }
+
+        .search_course_div {
+            height: 145px;
+        }
+
+        #search_course {
+            height: 100px;
+            margin: 20px;
+            border-radius: 16px;
+            width: 95%;
+            font-size: 46px;
+            text-align: center;
+            background-image: url("img/search.png");
+            background-repeat: no-repeat;
+            background-position: 33% -20%;
+            line-height: 100px;
+            background-size: 87px 87px;
+            outline: none;
+        }
+
+        #search_course_cancel_button {
+            visibility: hidden;
+        }
+
+        #search_course_cancel_button {
+            width: 12%;
+            height: 100px;
+            line-height: 100px;
+            color: #00a5e0;
+            background: none;
+            border: none;
+            font-size: 40px;
+        }
+
+        #slide_show_div {
+            margin: 0;
+            height: 550px;
+            overflow: hidden;
+        }
+
+        #slide_show_div ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #slide_show_div ul li {
+            list-style: none;
+            display: none;
+        }
+
+        #slide_show_div ul li.active {
+            display: block;
+
+        }
+
+        .category_span {
+            height: 90px;
+            font-size: 40px;
+            line-height: 90px;
+            padding-left: 29px;
+        }
+
+        #category {
+            background-color: white;
+        }
+
+        #category ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        #category ul li {
+            list-style: none;
+            background-image: url(img/forward.png);
+            background-repeat: no-repeat;
+            background-position: 96%;
+            background-size: 66px 66px;
+            line-height: 150px;
+            height: 150px;
+            border: 1px solid lightgray;
+            width: 100%;
+        }
+
+        #category ul li span, h1 {
+            display: inline;
+            margin: 15px;
+        }
+
+        #navigate {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+        }
+
+        #navigate ul {
+            margin: 10px auto;
+        }
+
+        #navigate ul li {
+            display: inline;
+            list-style: none;
+            width: 20%;
+            margin-left: 5%;
+            float: left;
+            text-align: left;
+        }
+
+        #navigate ul li span {
+            margin: 1%;
+            display: block;
+        }
+    </style>
+    <script src="css/my_font/iconfont.js"></script>
+</head>
+<body>
+<div class="search_course_div">
+    <input id="search_course" type="search" placeholder="搜索课程">
+    <button id="search_course_cancel_button">取消</button>
+</div>
+<div id="slide_show_div">
+    <ul id="slide_show_ul">
+        <li class="active">
+            <a href="">
+                <img src="img/slide1.jpg" width="100%" height="550px" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/slide2.jpg" width="100%" height="550px" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/slide3.jpg" width="100%" height="550px" alt="">
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="category_span"><span>ALL CATEGORIES</span></div>
+<div id="category">
+    <!--跳转的图标用background-->
+    <ul>
+        <li>
+            <span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-xuebajun"></use>
+                </svg>
+            </span>
+            <h1>文化课程</h1>
+        </li>
+        <li>
+<span><svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-cup"></use>
+</svg></span>
+            <h1>文化课程</h1>
+        </li>
+        <li>
+<span><svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-blackboard-2"></use>
+</svg></span>
+            <h1>文化课程</h1>
+        </li>
+        <li>
+<span><svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-zuanshi"></use>
+</svg></span>
+            <h1>文化课程</h1>
+        </li>
+    </ul>
+</div>
+<div id="navigate">
+    <ul>
+        <li><span><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xuebajun"></use>
+        </svg></span><span>首页</span></li>
+        <li><span><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xuebajun"></use>
+        </svg></span><span>奖励金</span></li>
+        <li><span><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xuebajun"></use>
+        </svg></span><span>精品课</span></li>
+        <li><span><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xuebajun"></use>
+        </svg></span><span>我的</span></li>
+    </ul>
+</div>
+</body>
+</html>
